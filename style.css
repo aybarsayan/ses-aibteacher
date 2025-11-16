@@ -83,11 +83,18 @@ h1 {
     border: 3px solid transparent;
     position: relative;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .sound-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    border-color: #667eea;
+}
+
+.sound-card:hover .click-hint {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .sound-card.active {
@@ -172,6 +179,29 @@ h1 {
     50% {
         opacity: 0.7;
     }
+}
+
+.click-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    opacity: 0;
+    transition: all 0.3s ease;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.sound-card.completed .click-hint,
+.sound-card.active .click-hint,
+.sound-card.playing .click-hint {
+    display: none;
 }
 
 .controls {

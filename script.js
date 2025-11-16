@@ -96,7 +96,12 @@ function createSoundCards() {
             <div class="sound-duration">Ses: ${sound.duration}sn | Çizim: ${Math.floor(sound.drawTime / 60)} dk</div>
             <div class="timer" id="timer-${sound.id}"></div>
             <div class="status waiting" id="status-${sound.id}">Bekliyor...</div>
+            <div class="click-hint">🎧 Dinlemek için tıkla</div>
         `;
+
+        // Karta tıklama event listener'ı ekle
+        card.addEventListener('click', () => playSelectedSound(index));
+
         soundGrid.appendChild(card);
     });
 }
@@ -113,6 +118,32 @@ function updateProgress() {
     const progress = (completedSounds / sounds.length) * 100;
     progressFill.style.width = `${progress}%`;
     progressText.textContent = `${completedSounds} / ${sounds.length} ses tamamlandı`;
+}
+
+// Seçilen sesi direkt çal
+function playSelectedSound(index) {
+    // Mevcut sesi ve zamanlayıcıyı durdur
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+    if (drawTimer) {
+        clearInterval(drawTimer);
+        drawTimer = null;
+    }
+
+    // Eğer çalışmıyorsa, etkinliği başlat
+    if (!isPlaying) {
+        isPlaying = true;
+        startBtn.disabled = true;
+        pauseBtn.disabled = false;
+    }
+
+    isPaused = false;
+    pauseBtn.textContent = '⏸️ Duraklat';
+
+    // Seçilen sesi çal
+    playSound(index);
 }
 
 // Ses çal
