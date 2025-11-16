@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seslerden Hayal Gücüne - Yapay Zeka Etkinliği</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎵 SESLERİ DİNLE VE HAYAL ET! 🎨</h1>
+            <p class="subtitle">Yapay Zeka Dersi - Ses ve Görsel İlişkisi Etkinliği</p>
+        </header>
+
+        <div class="instructions">
+            <h2>📋 Nasıl Oynanır?</h2>
+            <ol>
+                <li>Her sesi sırayla dinleyin</li>
+                <li>Ses çalarken aklınıza geleni çizim kağıdınıza çizin</li>
+                <li>Süre bitince bir sonraki sese geçin</li>
+                <li>Tüm sesleri dinleyip çizimlerinizi tamamlayın!</li>
+            </ol>
+            <p class="note">💡 <strong>Önemli:</strong> Doğru ya da yanlış cevap yoktur. Herkesin hayal gücü farklıdır!</p>
+        </div>
+
+        <div class="sound-grid" id="soundGrid">
+            <!-- Ses kartları JavaScript ile oluşturulacak -->
+        </div>
+
+        <div class="controls">
+            <button id="startBtn" class="btn btn-primary">▶️ Etkinliği Başlat</button>
+            <button id="pauseBtn" class="btn btn-secondary" disabled>⏸️ Duraklat</button>
+            <button id="resetBtn" class="btn btn-danger">🔄 Yeniden Başlat</button>
+        </div>
+
+        <div class="progress-section">
+            <h3>İlerleme Durumu</h3>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill"></div>
+            </div>
+            <p id="progressText">0 / 8 ses tamamlandı</p>
+        </div>
+
+        <footer>
+            <p>🤖 Yapay Zeka Dersi Etkinliği | 2025</p>
+            <p>Öğrenciler için hazırlanmıştır</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
